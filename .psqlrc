@@ -5,7 +5,25 @@
 \x auto
 \set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
 \set PROMPT2 '[more] %R > '
-\set HISTFILE ~/.psql_history- :DBNAME
+-- \set HISTFILE ~/.psql_history- :DBNAME
+\set HISTFILE ~/.psql_history- :HOST - :DBNAME
+\encoding unicode
 \set HISTCONTROL ignoredups
 \pset null [null]
 \unset QUIET
+\encoding unicode
+\setenv LESS -iMSx4FXR
+\setenv PAGER 'sed \"s/^\(([0-9]\+ [rows]\+)\)/$GREEN\1$NOCOLOR/;s/^\(-\[\ RECORD\ [0-9]\+\ \][-+]\+\)/$GREEN\1$NOCOLOR/;s/|/$GREEN|$NOCOLOR/g;s/^\([-+]\+\)/$GREEN\1$NOCOLOR/\" 2>/dev/null | less'
+
+\set menu '\\i ~/.psqlrc'
+\set locks  'SELECT bl.pid AS blocked_pid, a.usename AS blocked_user, kl.pid AS blocking_pid, ka.usename AS blocking_user, a.query AS blocked_statement FROM pg_catalog.pg_locks bl JOIN pg_catalog.pg_stat_activity a ON bl.pid = a.pid JOIN pg_catalog.pg_locks kl JOIN pg_catalog.pg_stat_activity ka ON kl.pid = ka.pid ON bl.transactionid = kl.transactionid AND bl.pid != kl.pid WHERE NOT bl.granted;'
+\set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
+\set activity 'select datname, pid, usename, application_name,client_addr, client_hostname, client_port, query, state from pg_stat_activity;'
+\set waits 'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'
+\set show_last_analyze_and_vacuum 'select relname, last_vacuum, last_autovacuum, last_analyze, last_autoanalyze from pg_stat_user_tables;'
+\set show_slow_queries 'SELECT (total_time / 1000 / 60) as total_minutes, (total_time/calls) as average_time, query FROM pg_stat_statements ORDER BY 1 DESC LIMIT 100;'
+
+\set pg_stat_monitoring 'SELECT substring(query, 1, 50) AS query, round(total_time::numeric, 2) AS total_time, calls, round(mean_time::numeric, 2) AS mean, round((100 * total_time / sum(total_time::numeric) OVER ())::numeric, 2) AS percentage_cpu FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10;'
+\set pg_stat_high_i_o 'select userid::regrole, dbid, query, queryid, mean_time / 1000 as mean_time_seconds from pg_stat_statements order by (blk_read_time + blk_write_time) desc limit 10;'
+\set pg_stat_time_consuming 'select userid::regrole, dbid, query, calls, total_time / 1000 as total_time_seconds, min_time / 1000   as min_time_seconds, max_time / 1000   as max_time_seconds, mean_time / 1000  as mean_time_seconds from pg_stat_statements order by mean_time desc limit 10;'
+\set pg_stat_high_memory 'select userid::regrole, dbid, queryid, query from pg_stat_statements order by (shared_blks_hit + shared_blks_dirtied) desc limit 10;'
