@@ -16,7 +16,6 @@ alias java11='export JAVA_HOME=$JAVA_11_HOME'
 
 export BROWSER="firefox developer edition"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
 export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 if type brew &>/dev/null; then
@@ -26,3 +25,6 @@ if type brew &>/dev/null; then
     compinit
 fi
 source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+export PATH="/usr/local/sbin:$PATH"
+
+alias=tmux="tmux -2 -f tmux.conf"
