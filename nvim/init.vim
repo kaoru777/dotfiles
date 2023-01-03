@@ -20,6 +20,11 @@ Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
+let mapleader=","
+
+nnoremap <silent> <n> :NvimTreeToggle<CR>
+nnoremap <silent> <leader>f :%!pg_format<CR>
+
 if has('termguicolors')
   set termguicolors
 endif
