@@ -120,5 +120,3 @@ export PATH="/usr/local/opt/node@16/bin:$PATH"
 
 
 eval "$(starship init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
