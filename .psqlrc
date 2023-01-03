@@ -1,3 +1,6 @@
+\setenv PSQL_EDITOR "/usr/local/bin/nvim"
+\setenv EDITOR "/usr/local/bin/nvim"
+
 \set QUIET 1
 \timing
 \set ON_ERROR_ROLLBACK interactive
