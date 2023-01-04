@@ -27,4 +27,6 @@ fi
 source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 export PATH="/usr/local/sbin:$PATH"
 
+alias pev2='wget https://www.github.com/dalibo/pev2/releases/latest/download/index.html -O ~/Tools/pev2.html && open -a Firefox\ Developer\ Edition -g ~/Tools/pev2.html'
+
 alias=tmux="tmux -2 -f tmux.conf"
