@@ -1,5 +1,5 @@
-\setenv PSQL_EDITOR "/usr/local/bin/nvim"
-\setenv EDITOR "/usr/local/bin/nvim"
+\setenv PSQL_EDITOR "nvim"
+\setenv EDITOR "nvim"
 
 \set QUIET 1
 \timing
