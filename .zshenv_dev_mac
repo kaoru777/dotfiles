@@ -1,0 +1,22 @@
+export JAVA_HOME=$(/usr/libexec/java_home -v11)
+
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v17)
+
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+alias java17='export JAVA_HOME=$JAVA_17_HOME'
+
+export BROWSER="firefox developer edition"
+
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit
+    compinit
+fi
+source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+alias pev2='wget https://www.github.com/dalibo/pev2/releases/latest/download/index.html -O ~/Tools/pev2.html && open -a Firefox\ Developer\ Edition -g ~/Tools/pev2.html'
