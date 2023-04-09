@@ -14,7 +14,8 @@ call plug#begin()
 Plug 'junegunn/vim-easy-align'
 
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " https://github.com/nvim-tree/nvim-tree.lua
 Plug 'nvim-tree/nvim-tree.lua'
