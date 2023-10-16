@@ -60,6 +60,9 @@ set softtabstop=4
 set expandtab
 set shiftwidth=4
 set autoindent
+set path+=**
+set wildmenu
+set wildignore+=comma,separated,list,of,file,patterns
 filetype plugin indent on
 syntax on
 filetype plugin on
