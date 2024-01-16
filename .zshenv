@@ -12,3 +12,8 @@ alias=tmux="tmux -2 -f tmux.conf"
 for file in ~/.zshenv_*; do
     source "$file"
 done
+
+bat() {
+    BAT_PAGER='less-rs /dev/stdin' command bat --terminal-width="$(($COLUMNS - 4))" "$@"
+    return $?
+}
