@@ -7,7 +7,8 @@ export PAGER="sed \"s/^\(([0-9]\+ [rows]\+)\)/$GREEN\1$NOCOLOR/;s/^\(-\[\ RECORD
 
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-alias=tmux="tmux -2 -f tmux.conf"
+alias tmux="tmux -2 -f tmux.conf"
+alias e="emacsclient -n"
 
 for file in ~/.zshenv_*; do
     source "$file"
