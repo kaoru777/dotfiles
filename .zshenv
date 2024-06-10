@@ -10,6 +10,14 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 alias set_git_private_profile="git config user.name 'Kaoru' && git config user.email 'kaoru@steinboeck.dev' && git config core.sshCommand 'ssh -i ~/.ssh/id_rsa_kaoru'"
 alias tmux="tmux -2 -f ~/.tmux.conf"
 
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt share_history
+
 # Allow piping to a buffer
 function e () {
     local EMACSOPT=""
