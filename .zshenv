@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 export YELLOW=`echo -e '\033[1;33m'`
 export LIGHT_CYAN=`echo -e '\033[1;36m'`
 export GREEN=`echo -e '\033[0;32m'`
